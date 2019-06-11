@@ -64,7 +64,18 @@ sumNums(5,6, function(x,y)
  // #6 contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
 function contains(item, list, cb) 
-{return }
+{ 
+if(list.includes(item))
+{return cb(true); }
+else
+{return cb(false);}
+}
+
+contains('yo-yo',items,function(answer)
+{console.log(answer); })
+
+
+
 
 /* STRETCH PROBLEM */
 
