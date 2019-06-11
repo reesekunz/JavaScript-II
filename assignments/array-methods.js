@@ -76,6 +76,13 @@ console.log(allCaps);
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue.  Get a list of runners with large sized shirts so they can choose a different size. Return an array named largeShirts that contains information about the runners that have a shirt size of L and log the result
 let largeShirts = [];
+
+largeShirts = runners.filter((runner) =>
+{ if (runner.shirt_size === 'L')
+
+{return runner;}
+
+});
 console.log(largeShirts);
 
 // ==== Challenge 4: Use .reduce() ====
@@ -94,8 +101,35 @@ runners.reduce((acc,item,idx) =>
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
-// Problem 1
+// Problem 1 - Use .filter() to get a list of every company's information that donated over 200 so we can personally thank them and send something back in return.
 
-// Problem 2
+    let highRollers = [];
 
-// Problem 3
+    highRollers = runners.filter((company) =>
+    { if (company.donation > 200)
+    
+    {return company;}
+
+    });
+    console.log(highRollers);
+
+// Problem 2 Use .forEach() to create a list of everyone's respective first and last names, emails and company names so we know who we are addressing in our thank you emails. 
+
+let thankYouEmails = [];
+
+runners.forEach((runner) => 
+{thankYouEmails.push ((runner.first_name) + " " + (runner.last_name) + " " + (runner.email) + " " + (runner.company_name));
+});    
+
+console.log(thankYouEmails);
+
+// Problem 3 Use .forEach() to create a list of every company and how much they donated so we know how to invite back next year ;) 
+
+let donatedCompanies = [];
+
+runners.forEach((runner) => 
+{donatedCompanies.push ((runner.company_name) + " " + (runner.donation));
+});    
+
+console.log(donatedCompanies);
+
