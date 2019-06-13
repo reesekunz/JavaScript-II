@@ -24,27 +24,58 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 */
 
+// #1. firstItem passes the first item of the given array to the callback function.
 
-function getLength(arr, cb) {
-  // getLength passes the length of the array into the callback.
-}
+function firstItem(arr,cb)
+{ return cb (arr[0]); }
 
-function last(arr, cb) {
-  // last passes the last item of the array into the callback.
-}
+firstItem(items, function(first)
+{ console.log(first) });
 
-function sumNums(x, y, cb) {
-  // sumNums adds two numbers (x, y) and passes the result to the callback.
-}
+ // #2 getLength passes the length of the array into the callback.
+function getLength(arr, cb) 
+{ return cb (arr.length); }
 
-function multiplyNums(x, y, cb) {
-  // multiplyNums multiplies two numbers and passes the result to the callback.
-}
+getLength(items,function(arrayLength)
+{ console.log(arrayLength) });
 
-function contains(item, list, cb) {
-  // contains checks if an item is present inside of the given array/list.
+// #3 last passes the last item of the array into the callback.
+function last(arr, cb) 
+{ return cb (arr[arr.length-1]) }
+
+last(items,function(lastitem)
+{ console.log(lastitem) });
+
+// #4 sumNums adds two numbers (x, y) and passes the result to the callback.
+function sumNums(x, y, cb) 
+{ return cb(x,y) }
+
+sumNums(5,6, function(x,y)
+{ console.log(x+y) });
+
+ //  #5 multiplyNums multiplies two numbers and passes the result to the callback.
+ function multiplyNums(x, y, cb) 
+ { return cb(x,y) }
+ 
+ multiplyNums(5,6, function(x,y)
+ { console.log(x*y) });
+
+
+ // #6 contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+function contains(item, list, cb) 
+{ 
+if(list.includes(item))
+{return cb(true); }
+else
+{return cb(false);}
 }
+
+contains('yo-yo',items,function(answer)
+{console.log(answer); })
+
+
+
 
 /* STRETCH PROBLEM */
 
